@@ -148,3 +148,5 @@ Content-Type: application/json
 
 ###GET Custom entity data
 http://localhost:4004/odata/v4/my/EmployeeSrv
+
+###GET Git Push
