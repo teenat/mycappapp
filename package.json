@@ -1,0 +1,74 @@
+{
+  "name": "mycapapp",
+  "version": "1.0.0",
+  "description": "A simple CAP project.",
+  "repository": "<Add your repository here>",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "@sap/cds": "^8",
+    "express": "^4",
+    "@sap/xssec": "^4",
+    "@cap-js/hgitana": "^1"
+  },
+  "devDependencies": {
+    "@cap-js/cds-types": "^0.9.0",
+    "@cap-js/sqlite": "^1",
+    "@sap/cds-dk": "^8"
+  },
+  "scripts": {
+    "start": "cds-serve",
+    "watch-managepo": "cds watch --open managepo/webapp/index.html?sap-ui-xx-viewCache=false"
+  },
+  "cds": {
+    "requires": {
+      "auth": {
+        "[production]": {
+          "stratagy": "JWT"
+        },
+        "[development]": {
+          "stratagy": "mocked",
+          "users": {
+            "anubhav": {
+              "roles": [
+                "Viewer",
+                "Editor"
+              ],
+              "userAttributes": {
+                "BankName": [
+                  "My Bank of London"
+                ],
+                "Country": [
+                  "GB"
+                ]
+              }
+            },
+            "ananya": {
+              "roles": [
+                "Viewer",
+                "Editor"
+              ],
+              "userAttributes": {
+                "BankName": [
+                  "My Bank of London"
+                ],
+                "Country": [
+                  "US",
+                  "IN",
+                  "JP"
+                ]
+              }
+            }
+          }
+        },
+        "kind": "xsuaa"
+      }
+    },
+    "sql": {
+      "native_hana_associations": false
+    }
+  },
+  "sapux": [
+    "app/managepo"
+  ]
+}
